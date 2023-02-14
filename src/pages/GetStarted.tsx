@@ -12,13 +12,13 @@ export default function GetStarted() {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
           
-          <div className='bg-yellow-400 flex flex-col align-middle'>
-            <div className='inset-x-0 top-0'>
+          <div className='bg-yellow-400 flex flex-col'>
+            <div className=''>
               <Login />
             </div>
           </div>
 
-          <div className='bg-yellow-400 flex flex-col align-middle'>
+          <div className='bg-yellow-400 flex flex-col'>
             <div className=''>
               <Register />
             </div>

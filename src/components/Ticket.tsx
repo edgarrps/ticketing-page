@@ -5,8 +5,8 @@ import { List } from './List'
 export const Ticket = () => {
     return (
         <div>
-            Informações do ticket
-            {/* Neste local irá ser consumido os campos dos tickets para informar na página Details */}
+            <label htmlFor=''></label>
+            <textarea></textarea>
         </div>
     )
 }

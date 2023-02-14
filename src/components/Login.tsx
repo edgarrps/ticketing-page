@@ -5,7 +5,7 @@ export const Login = () => {
   return (
     <div>
       <div className='justify-content'>
-        <img className='max-w-[400px] mx-auto pb-10' src={LoginImg} />
+        <img className='min-w-[100px] w-[400px] mx-auto pb-10' src={LoginImg} />
       </div>
 
 

@@ -5,7 +5,7 @@ export const Register = () => {
         <div>
 
             <div className='justify-content'>
-                <img className='max-w-[230px] mx-auto pt-10 pb-10' src={JoinUs} />
+                <img className='min-w-[60px] w-[200px] mx-auto pt-10 pb-10' src={JoinUs} />
             </div>
             <form className='bg-white space-y-2 max-w-[300px] w-full mx-auto rounded-2xl bg-gray-400 p-8 px-8'>
 
@@ -13,7 +13,7 @@ export const Register = () => {
                     <label className='text-3xl text-gray-600 font-bold'>Usuário novo?</label><label className='text-2xl text-gray-600 font-bold'>Registre-se</label>
                 </div>
                 <div className='text-center'>
-                    <div className='pb-2'><label htmlFor='username'>Nome do Usuário</label></div>
+                    <div className='pb-2'><label htmlFor='username'>Nome do usuário</label></div>
                     <input className='text-center placeholder:text-center flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='username' type='text' placeholder='username'></input>
                 </div>
                 <div className='text-center'>
