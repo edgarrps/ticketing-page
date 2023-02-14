@@ -16,8 +16,8 @@ export const Login = () => {
         </div>
 
         <div>
-          <div><input className='placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' type='text' placeholder="usuário"></input></div>
-          <div className='pt-4 pb-4'><input className='placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' type='password' placeholder="senha"></input></div>
+          <div><input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' type='text' placeholder="usuário"></input></div>
+          <div className='pt-4 pb-4'><input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' type='password' placeholder="senha"></input></div>
         </div>
 
         <div className='grid place-items-center'>
