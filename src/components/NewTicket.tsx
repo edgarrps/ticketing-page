@@ -6,6 +6,7 @@ export const NewTicket = () => {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [urgency, setUrgency] = useState('')
 
   return (
     <form className='bg-yellow-200 h-screen'>
@@ -33,7 +34,7 @@ export const NewTicket = () => {
 
             <div>
               <label >Urgência</label>
-              <select className='flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='level'>
+              <select value={urgency} onChange={e => setUrgency(e.target.value)} className='flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='level'>
                 <option></option>
                 <option>Leve</option>
                 <option>Média</option>
