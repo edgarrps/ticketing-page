@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom'
 import { List } from '../components/List'
+import {useState} from 'react'
 
 export const Tickets = () => {
+
+  const [tickets, setTickets] = useState([])
+
+  const addTicket = (ticket: Object) => {
+    const newTickets = [ticket, ...tickets]
+    setTickets(newTickets)
+
+  }
   return (
     <div className='grid sm:grid-cols-1 h-screen bg-yellow-100'>
 
