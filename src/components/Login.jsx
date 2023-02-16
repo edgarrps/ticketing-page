@@ -1,7 +1,49 @@
-import { Link } from "react-router-dom"
 import LoginImg from '../img/Login.svg'
+import { useState } from "react"
+import { useNavigate } from 'react-router-dom'
+
 
 export const Login = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [isLogged, setIsLogged] = useState(false)
+  const history = useNavigate()
+
+
+  const getUserByUsername = (username) => {
+    const users = JSON.parse(localStorage.getItem('users')) || []
+    return users.find((user) => user.username === username)
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    
+    // Validação dos campos
+    const errors = {}
+    if (!username) {
+      errors.username = 'Usuário não preenchido' && alert('Preencha o usuário')
+    }
+    if (!password) {
+      errors.password = 'Senha não preenchida' && alert('Preencha a senha')
+    }
+  
+    if (Object.keys(errors).length > 0) {
+      console.log('There are errors in the form', errors)
+      return
+    }
+  
+    // Verificar se o usuário e a senha estão corretos
+    const user = getUserByUsername(username)
+    if (!user || user.password !== password) {
+    alert('Usuário ou senha incorretos')
+      return
+    }
+  
+    console.log('Login successful!')
+    setIsLogged(true)
+    history('/tickets')
+  }
+    
   return (
     <div>
       <div className='justify-content'>
@@ -9,19 +51,25 @@ export const Login = () => {
       </div>
 
 
-      <form className='bg-white space-y-2 max-w-[300px] w-full mx-auto rounded-2xl bg-gray-400 p-8 px-8'>
+      <form onSubmit={handleLogin} className='bg-white space-y-2 max-w-[300px] w-full mx-auto rounded-2xl bg-gray-400 p-8 px-8'>
 
         <div className='text-center pb-1'>
           <label className='text-3xl text-gray-600 font-bold'>Entrar</label>
         </div>
 
         <div>
-          <div><input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' type='text' placeholder="usuário"></input></div>
-          <div className='pt-4 pb-4'><input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' type='password' placeholder="senha"></input></div>
+          <div>
+            <input onChange={e => setUsername(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' value={username} type='text' placeholder='usuário'>
+            </input>
+          </div>
+          <div className='pt-4 pb-4'>
+            <input onChange={e => setPassword(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' value={password} type='password' placeholder='senha'>
+            </input>
+          </div>
         </div>
 
         <div className='grid place-items-center'>
-          <Link to='./tickets'><button className='text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button></Link>
+          <button onClick={handleLogin} className='text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button>
         </div>
 
       </form>

@@ -1,38 +1,77 @@
 import JoinUs from '../img/JoinUs.svg'
+import { useState } from 'react'
 
 export const Register = () => {
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const saveUser = (user) => {
+        const users = JSON.parse(localStorage.getItem('users')) || []
+        users.push(user)
+        localStorage.setItem('users', JSON.stringify(users))
+      }
+
+      const handleRegister = (event) => {
+        event.preventDefault();
+        
+        // Validação dos campos
+        const errors = {};
+        if (!username) {
+          errors.username = 'Nome de Usuário não informado';
+        }
+        if (!email) {
+          errors.email = 'Email não informado';
+        } else {
+          const emailPattern = /^\S+@\S+\.\S+$/;
+          if (!emailPattern.test(email)) {
+            errors.email = 'Email inválido';
+          }
+        }
+        if (!password) {
+          errors.password = 'Senha não informada';
+        } else if (password.length < 6) {
+          errors.password = 'Senha de no mínimo 6 caracteres';
+        }
+      
+        if (Object.keys(errors).length > 0) {
+          console.log('Existem pendências do registro', errors);
+          return;
+        }
+      
+        // Salvar os dados no localStorage
+        const user = { username, email, password };
+        saveUser(user);
+      };
+
     return (
         <div>
 
             <div className='justify-content'>
                 <img className='min-w-[60px] w-[200px] mx-auto pt-10 pb-10' src={JoinUs} />
             </div>
-            <form className='bg-white space-y-2 max-w-[300px] w-full mx-auto rounded-2xl bg-gray-400 p-8 px-8'>
+            <form onSubmit={handleRegister} className='bg-white space-y-2 max-w-[300px] w-full mx-auto rounded-2xl bg-gray-400 p-8 px-8'>
 
                 <div className='text-center pb-1'>
                     <label className='text-3xl text-gray-600 font-bold'>Usuário novo?</label><label className='text-2xl text-gray-600 font-bold'>Registre-se</label>
                 </div>
                 <div className='text-center'>
                     <div className='pb-2'><label htmlFor='username'>Nome do usuário</label></div>
-                    <input className='text-center placeholder:text-center flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='username' type='text' placeholder='username'></input>
+                    <input value={username} onChange={e => setUsername(e.target.value)} className='text-center placeholder:text-center flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='username' type='text' placeholder='username'></input>
                 </div>
                 <div className='text-center'>
-                <div className='pt-2 pb-2'><label htmlFor='email'>E-mail</label></div>
-                    <input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='email' type='email' placeholder='user@user.com'></input>
+                    <div className='pt-2 pb-2'><label htmlFor='email'>E-mail</label></div>
+                    <input value={email} onChange={e => setEmail(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='email' type='email' placeholder='user@user.com'></input>
                 </div>
                 <div className='text-center'>
-                    <div className='pt-2 pb-2'><label htmlFor='passwd'>Senha</label></div>
-                    <input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='passwd' type='password' placeholder='********'></input>
-                </div>
-                <div className='text-center'>
-                <div className='pt-2 pb-2'><label htmlFor='repasswd'>Repetir senha</label></div>
-                    <input className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='repasswd' type='password' placeholder='********'></input>
+                    <div className='pt-2 pb-2'><label htmlFor='password'>Senha</label></div>
+                    <input value={password} onChange={e => setPassword(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='password' type='password' placeholder='********'></input>
                 </div>
                 <div className='pt-4 text-center'>
-                    <button className='text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Registrar</button>
+                <button type='submit' className='text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Registrar</button>
                 </div>
             </form>
         </div>
     )
 }
-

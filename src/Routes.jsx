@@ -10,8 +10,8 @@ export default () => {
             <Route exact path='/' element={<GetStarted />} />
             <Route exact path='/new-ticket' element={<NewTicket />} />
             <Route exact path='/tickets' element={<Tickets />} />
-            <Route exact path='/ticket-details' element={<Details />} />
-        </Routes>
+            <Route path='/tickets/:id' element= {<Details />}/>
+            </Routes>
         </>
     )
 } 

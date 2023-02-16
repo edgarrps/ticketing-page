@@ -1,18 +1,32 @@
-import { Link } from "react-router-dom"
-import { Ticket } from "../components/Ticket"
+import { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { Tickets } from './Tickets'
 
 export const Details = () => {
+  const { id } = useParams()
+  const [ticket, setTicket] = useState(null)
+  
+  useEffect(() => {
+    const storedTickets = JSON.parse(localStorage.getItem('Tickets')) || []
+    const selectedTicket = storedTickets.find((ticket) => ticket.id === parseInt(id))
+    setTicket(selectedTicket)
+    console.log({Tickets})
+  }, [id])
+
+  
   return (
     <div>
-      <h1>Ticket #1111</h1>
-      <Ticket />
-      <form>
-        <div>
-          <input type='textarea' placeholder='Réplica'></input>
-          <button type='submit'>Enviar</button>
-        </div>
-      </form>
-      <Link to='../tickets'><button>Voltar</button></Link>
+      {ticket ? (
+        <>
+          <h1>{ticket.title}</h1>
+          <p>{ticket.description}</p>
+          <form>
+          </form>
+          <Link to='/tickets'><button>Voltar</button></Link>
+        </>
+      ) : (
+        <p>Ticket não encontrado</p>
+      )}
     </div>
   )
 }

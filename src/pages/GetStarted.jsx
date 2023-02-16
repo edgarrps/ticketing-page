@@ -1,7 +1,9 @@
 import { Login } from "../components/Login"
 import { Register } from "../components/Register"
+import { useState } from "react"
 
 export default function GetStarted() {
+
   return (
     <div>
       <div className='grid sm:grid-cols-1 flex '>
@@ -20,7 +22,7 @@ export default function GetStarted() {
 
           <div className='bg-yellow-400 flex flex-col'>
             <div className=''>
-              <Register />
+              <Register btnText='Registrar'/>
             </div>
           </div>
 
