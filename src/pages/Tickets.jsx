@@ -6,7 +6,7 @@ export const Tickets = () => {
 
   const [tickets, setTickets] = useState([])
 
-  const addTicket = (ticket: Object) => {
+  const addTicket = (ticket) => {
     const newTickets = [ticket, ...tickets]
     setTickets(newTickets)
 

@@ -1,25 +1,12 @@
 import { ChangeEvent, useState } from "react"
 import { Link } from "react-router-dom"
 
-interface NTicket {
-  id: React.ReactNode,
-  titulo: React.ReactNode,
-  categoria: React.ReactNode,
-  nvl: React.ReactNode,
-  desc: React.ReactNode
-}
 
 export const NewTicket = () => {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [urgency, setUrgency] = useState('')
-
-
-  // NTicket.onSubmit({
-  //   id: Math.floor(Math.random() * 10000),
-  //   desc: description,
-  // })
 
   return (
     <form onSubmit={e => e.preventDefault()} className='bg-yellow-200 h-screen'>
@@ -31,7 +18,7 @@ export const NewTicket = () => {
         <div className=''>
           <div className=''>
             <label htmlFor='title'>Assunto</label>
-            <input className='flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='title' type='text' value={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} maxLength={50} />
+            <input className='flex bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='title' type='text' value={title} onChange={(e) => setTitle(e.target.value)} maxLength={50} />
           </div>
 
           <div>
