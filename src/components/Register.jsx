@@ -1,11 +1,11 @@
 import JoinUs from '../img/JoinUs.svg'
 import { useState } from 'react'
+import { fakeToken } from './FakeToken'
 
 export const Register = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
 
     const saveUser = (user) => {
         const users = JSON.parse(localStorage.getItem('users')) || []
@@ -13,37 +13,40 @@ export const Register = () => {
         localStorage.setItem('users', JSON.stringify(users))
       }
 
-      const handleRegister = (event) => {
-        event.preventDefault();
+      const handleRegister = (e) => {
+        e.preventDefault()
         
         // Validação dos campos
-        const errors = {};
+        const errors = {}
         if (!username) {
-          errors.username = 'Nome de Usuário não informado';
+          alert(errors.username = 'Nome de usuário não informado para cadastro')
         }
         if (!email) {
-          errors.email = 'Email não informado';
+          errors.email = 'Email não informado'
         } else {
-          const emailPattern = /^\S+@\S+\.\S+$/;
+          const emailPattern = /^\S+@\S+\.\S+$/
           if (!emailPattern.test(email)) {
-            errors.email = 'Email inválido';
+            alert(errors.email = 'Email inválido')
           }
         }
         if (!password) {
-          errors.password = 'Senha não informada';
+          alert(errors.password = 'Senha não informada')
         } else if (password.length < 6) {
-          errors.password = 'Senha de no mínimo 6 caracteres';
+          alert(errors.password = 'Senha de no mínimo 6 caracteres')
         }
       
         if (Object.keys(errors).length > 0) {
-          console.log('Existem pendências do registro', errors);
-          return;
+          console.log('Existem pendências do registro', errors)
+          return
         }
-      
+
         // Salvar os dados no localStorage
-        const user = { username, email, password };
-        saveUser(user);
-      };
+        const user = { username, email, password }
+        saveUser(user)
+        alert('Cadastro realizado com sucesso!')
+        localStorage.setItem('token', fakeToken)
+        window.location.reload()
+      }
 
     return (
         <div>

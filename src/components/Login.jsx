@@ -1,14 +1,15 @@
 import LoginImg from '../img/Login.svg'
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
+import { fakeToken } from './FakeToken'
 
 
 export const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isLogged, setIsLogged] = useState(false)
-  const history = useNavigate()
-
+  const [isLogged, setIsLogged] = useState()
+  
+  const navigate = useNavigate()
 
   const getUserByUsername = (username) => {
     const users = JSON.parse(localStorage.getItem('users')) || []
@@ -17,7 +18,7 @@ export const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    
+
     // Validação dos campos
     const errors = {}
     if (!username) {
@@ -26,24 +27,26 @@ export const Login = () => {
     if (!password) {
       errors.password = 'Senha não preenchida' && alert('Preencha a senha')
     }
-  
+
     if (Object.keys(errors).length > 0) {
-      console.log('There are errors in the form', errors)
+      console.log('Erros no formulário', errors)
       return
     }
-  
+
     // Verificar se o usuário e a senha estão corretos
     const user = getUserByUsername(username)
     if (!user || user.password !== password) {
-    alert('Usuário ou senha incorretos')
+      alert('Usuário ou senha incorretos')
       return
     }
-  
-    console.log('Login successful!')
+
+    console.log('Login realizado!')
+    localStorage.setItem('token', fakeToken)
     setIsLogged(true)
-    history('/tickets')
-  }
+    navigate('tickets')()
     
+
+  }
   return (
     <div>
       <div className='justify-content'>
