@@ -1,14 +1,12 @@
 import LoginImg from '../img/Login.svg'
 import { useState } from "react"
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { fakeToken } from './FakeToken'
 
 
-export const Login = ({ redirect }) => {
+export const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isLogged, setIsLogged] = useState()
-
   const navigate = useNavigate()
 
   const getUserByUsername = (username) => {
@@ -21,29 +19,20 @@ export const Login = ({ redirect }) => {
 
     // Validação dos campos
     const errors = {}
-    if (!username) {
-      errors.username = 'Usuário não preenchido' && alert('Preencha o usuário')
-    }
-    if (!password) {
-      errors.password = 'Senha não preenchida' && alert('Preencha a senha')
-    }
-
-    if (Object.keys(errors).length > 0) {
-      console.log('Erros no formulário', errors)
-      return
-    }
+    if (!username) errors.username = alert('Preencha o usuário')
+    if (!password) errors.password = alert('Preencha a senha')
+    if (Object.keys(errors).length > 0) console.log('Erros no formulário', errors)
 
     // Verificar se o usuário e a senha estão corretos
     const user = getUserByUsername(username)
-    if (!user || user.password !== password) {
+    if (!user || user.password !== password) { 
       alert('Usuário ou senha incorretos')
-      return
+      localStorage.removeItem('token')
     }
 
     console.log('Login realizado!')
     localStorage.setItem('token', fakeToken)
-    setIsLogged(true)
-    navigate('/tickets')()
+    navigate('/tickets')
 
   }
 
@@ -70,7 +59,7 @@ export const Login = ({ redirect }) => {
         </div>
 
         <div className='grid md:grid-cols-1 place-items-center'>
-          <button disabled={!username || password.length < 6} onClick={handleLogin} className='text-white disabled:bg-gray-400 bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button>
+          <button disabled={!username || password.length < 6} onClick={handleLogin} className='text-white shadow-xl disabled:bg-gray-400 bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button>
           {/* <button disabled={!fakeToken} className='text-white bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-400 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Tickets</button> */}
         </div>
       </form>

@@ -72,7 +72,7 @@ export const Register = () => {
                     <input value={password} onChange={e => setPassword(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' id='password' type='password' placeholder='********'></input>
                 </div>
                 <div className='pt-4 text-center'>
-                <button type='submit' className='text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Registrar</button>
+                <button type='submit' disabled={!username || !email || password.length < 6} className='text-white bg-yellow-600 disabled:bg-gray-400 hover:bg-yellow-500 shadow-xl focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Registrar</button>
                 </div>
             </form>
         </div>

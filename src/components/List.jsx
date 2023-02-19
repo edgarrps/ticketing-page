@@ -28,7 +28,7 @@ export const List = () => {
               <td>
                 <Link className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider' to={`/tickets/${ticket.id}`}>{ticket.id}</Link>
               </td>
-              <td className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>{ticket.title}</td>
+              <td className='px-6 py-3 max-w-readable text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>{ticket.title}</td>
               <td className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>{ticket.user}</td>
               <td className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>{ticket.category}</td>
               <td className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>{ticket.urgency}</td>
