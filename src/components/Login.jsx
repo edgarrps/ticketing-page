@@ -1,14 +1,14 @@
 import LoginImg from '../img/Login.svg'
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { fakeToken } from './FakeToken'
 
 
-export const Login = () => {
+export const Login = ({ redirect }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isLogged, setIsLogged] = useState()
-  
+
   const navigate = useNavigate()
 
   const getUserByUsername = (username) => {
@@ -43,10 +43,10 @@ export const Login = () => {
     console.log('Login realizado!')
     localStorage.setItem('token', fakeToken)
     setIsLogged(true)
-    navigate('tickets')()
-    
+    navigate('/tickets')()
 
   }
+
   return (
     <div>
       <div className='justify-content'>
@@ -61,20 +61,18 @@ export const Login = () => {
         </div>
 
         <div>
-          <div>
-            <input onChange={e => setUsername(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' value={username} type='text' placeholder='usuário'>
-            </input>
-          </div>
-          <div className='pt-4 pb-4'>
-            <input onChange={e => setPassword(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' value={password} type='password' placeholder='senha'>
-            </input>
-          </div>
+          <input onChange={e => setUsername(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' value={username} type='text' placeholder='usuário'>
+          </input>
+        </div>
+        <div className='pt-4 pb-4'>
+          <input onChange={e => setPassword(e.target.value)} className='text-center placeholder:text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-1.5' value={password} type='password' placeholder='senha'>
+          </input>
         </div>
 
-        <div className='grid place-items-center'>
-          <button onClick={handleLogin} className='text-white bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button>
+        <div className='grid md:grid-cols-1 place-items-center'>
+          <button disabled={!username || password.length < 6} onClick={handleLogin} className='text-white disabled:bg-gray-400 bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button>
+          {/* <button disabled={!fakeToken} className='text-white bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-400 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Tickets</button> */}
         </div>
-
       </form>
 
     </div>

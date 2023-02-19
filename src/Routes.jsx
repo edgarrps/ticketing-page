@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NewTicket } from './components/NewTicket'
 import { Tickets } from './pages/Tickets'
-import GetStarted from './pages/GetStarted'
+import GetStarted from './pages/GetStarted' 
 
 function App() {
     
@@ -9,7 +9,7 @@ function App() {
     const token = localStorage.getItem('token')
 
     // Verifica se o token é válido
-    const isAuthenticated = token && token.length > 0
+    const isAuthenticated = token
 
     // Componente de validação de login
     function ProtectedRoute({ element, ...rest }) {
@@ -17,7 +17,7 @@ function App() {
         const token = localStorage.getItem('token')
 
         if (!isAuthenticated) {
-            return <Navigate to="/login" replace />
+            return <Navigate to="/" replace />
         }
 
         return <Route {...rest} element={element} />

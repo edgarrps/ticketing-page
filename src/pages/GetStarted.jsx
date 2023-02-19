@@ -22,7 +22,7 @@ export default function GetStarted() {
 
           <div className='bg-yellow-400 flex flex-col'>
             <div className=''>
-              <Register btnText='Registrar'/>
+              <Register />
             </div>
           </div>
 
