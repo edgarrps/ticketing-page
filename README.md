@@ -1,6 +1,6 @@
 # Ticketing Page
 <img src="https://i.imgur.com/N8UtG1K.png" align="right"
-     alt="" width="166" height="196">
+     width="166" height="196">
 
 
 [ticketing-page.vercel.app](https://ticketing-page.vercel.app/)
@@ -8,7 +8,10 @@
 ## Basic Overview
 ### Project made for a simple ticket implementation system, where the user can perceive any demand for request, suggestion, complaint and other questions.
 > Made with React.Js + Tailwind.CSS 
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" align="left" width="50" height="50">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" align="left" width="50" height="50">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg" align="left" width="50" height="50">
+<br>
 <br>
 
 ## How It Works
