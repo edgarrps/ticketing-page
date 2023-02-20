@@ -1,4 +1,5 @@
 import JoinUs from '../img/JoinUs.svg'
+
 import { useState } from 'react'
 import { fakeToken } from './FakeToken'
 

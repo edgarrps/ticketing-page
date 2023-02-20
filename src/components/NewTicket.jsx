@@ -8,8 +8,8 @@ export const NewTicket = () => {
   const [category, setCategory] = useState('')
   const [description, setDescription] = useState('')
   const [urgency, setUrgency] = useState('')
-  const [lastTicketId, setLastTicketId] = useState(1) // inicializa com 1
-
+  const [lastTicketId, setLastTicketId] = useState(1)
+  
   useEffect(() => {
     const lastId = Number(localStorage.getItem('lastTicketId'))
     if (!isNaN(lastId)) {
