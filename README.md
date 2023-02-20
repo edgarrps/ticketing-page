@@ -66,7 +66,7 @@ npm run dev
 
 * ~~If the user is already logged in, he is able to return to the login screen, where he ends up redoing the login unnecessarily;~~
 
-* As the user is already logged in, even if he makes a mistake in the login and password on the login screen, he can access it, 
-  because validation is done by the token saved in localStorage;
+* ~~As the user is already logged in, even if he makes a mistake in the login and password on the login screen, he can access it, 
+  because validation is done by the token saved in localStorage;~~
   
 * Still doesn't work :  <img src="https://user-images.githubusercontent.com/68236516/220065241-3d7dc0c1-d0f4-4e1f-9ce2-4e36af492c15.png"  width="227" height="29">
