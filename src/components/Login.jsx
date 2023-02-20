@@ -1,13 +1,11 @@
 import LoginImg from '../img/Login.svg'
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom'
 import { fakeToken } from './FakeToken'
 
 
 export const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const navigate = useNavigate()
 
   const getUserByUsername = (username) => {
     const users = JSON.parse(localStorage.getItem('users')) || []
@@ -32,7 +30,7 @@ export const Login = () => {
 
     console.log('Login realizado!')
     localStorage.setItem('token', fakeToken)
-    navigate('/tickets')
+    window.location.reload()
 
   }
 
@@ -60,7 +58,6 @@ export const Login = () => {
 
         <div className='grid md:grid-cols-1 place-items-center'>
           <button disabled={!username || password.length < 6} onClick={handleLogin} className='text-white shadow-xl disabled:bg-gray-400 bg-yellow-600 hover:bg-yellow-500 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center' type='submit'>Login</button>
-          {/* <button disabled={!fakeToken} className='text-white bg-yellow-600 hover:bg-yellow-500 disabled:bg-gray-400 focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center'>Tickets</button> */}
         </div>
       </form>
 

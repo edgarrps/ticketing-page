@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { List } from '../components/List'
 
 export const Tickets = () => {
@@ -18,7 +18,7 @@ export const Tickets = () => {
         </div>
 
 
-        <div className='grid mx-auto '>
+        <div className='grid mx-auto'>
           <div className=''>
             <List />
           </div>

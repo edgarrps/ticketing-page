@@ -1,39 +1,27 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { NewTicket } from './components/NewTicket'
 import { Tickets } from './pages/Tickets'
 import GetStarted from './pages/GetStarted'
 
 function App() {
-    
-    // Recupera o token salvo em localStorage
     const token = localStorage.getItem('token')
-
-    // Verifica se o token é válido
-    const isAuthenticated = token && token.length > 0
-
-    // Componente de validação de login
-    function ProtectedRoute({ element, ...rest }) {
-        const navigate = useNavigate()
-        const token = localStorage.getItem('token')
-
-        if (!isAuthenticated) {
-            return <Navigate to="/login" replace />
-        }
-
-        return <Route {...rest} element={element} />
-    }
+    const isAuthenticated = token
 
     return (
         <div className="App">
             <Routes>
-                <Route path="/" element={<GetStarted />} />
                 {isAuthenticated ? (
                     <>
+                        <Route path="/" element={<Tickets />} />
+                        <Route path="*" element={<Navigate to="/tickets" replace />} />
                         <Route path="/new-ticket" element={<NewTicket />} />
                         <Route path="/tickets" element={<Tickets token={token} />} />
                     </>
                 ) : (
-                    <Route path="*" element={<Navigate to="/" replace />} />
+                    <>
+                        <Route path="/" element={<GetStarted />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </>
                 )}
             </Routes>
         </div>

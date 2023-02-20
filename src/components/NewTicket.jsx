@@ -59,14 +59,14 @@ export const NewTicket = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className='p-10 bg-yellow-200'>
-        <div className='p-4 max-w-fit mx-auto text-center rounded-3xl shadow-xl flex items-center space-x-4'>
+      <form onSubmit={handleSubmit} className='p-10 bg-yellow-200 h-screen'>
+        <div className='p-3 max-w-fit mx-auto text-center rounded-3xl shadow-xl flex items-center space-x-4'>
           <label className='font-bold text-4xl text-gray-500'>Novo Ticket</label>
         </div>
         <br />
-        <div className='pt-1 pl-6 pr-6 pb-5 max-w-fit mx-auto pt-10 pb-10 bg-yellow-300 text-center rounded-3xl shadow-xl flex items-center space-x-4'>
-          <div className=''>
-            <div className='pt-5'>
+        <div className='pt-5 pl-6 pr-6 pb-5 max-w-fit mx-auto pb-10 bg-yellow-300 text-center rounded-3xl shadow-xl flex items-center space-x-4'>
+          <div>
+            <div>
               <label className='font-bold p-4 text-2xl text-gray-500' htmlFor='title'>Assunto</label>
               <div className='pt-2'>
               <input className='flex text-center bg-gray-100 border-2 outline-yellow-500 border-yellow-300 text-gray-600 text-sm rounded-full block w-full p-2' placeholder='Mínimo 5 caracteres' id='title' type='text' value={title} onChange={(e) => setTitle(e.target.value)} maxLength={50} />
@@ -158,7 +158,7 @@ export const NewTicket = () => {
               </div>
               <div className='px-4 py-2 bg-white rounded-b-lg'>
                 <label htmlFor='editor' className='sr-only'>Descrição</label>
-                <textarea value={description} onChange={e => setDescription(e.target.value)} maxLength={2000} id='editor' rows='8' className='block w-full px-0 text-sm text-gray-600 border-0' placeholder='Descreva seu texto' required></textarea>
+                <textarea value={description} onChange={e => setDescription(e.target.value)} maxLength={2000} id='editor' rows='8' className='block w-full px-0 text-sm text-gray-600 border-0' placeholder='Descreva seu texto, mínimo 10 caracteres' required></textarea>
               </div>
             </div>
 
