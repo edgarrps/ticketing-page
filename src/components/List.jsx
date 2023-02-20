@@ -11,8 +11,10 @@ export const List = () => {
 
   return (
     <div>
-      <h2 className='px-6 py-3 text-left  uppercase tracking-wider'>Lista de Tickets</h2>
+      <h2 className='text-center px-6 py-3 text-left text-2
+      xl text-gray-500 uppercase'>Lista de Tickets</h2>
       <table className='w-full divide-y divide-gray-200'>
+
         <thead>
           <tr>
             <th className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>ID</th>
@@ -22,7 +24,9 @@ export const List = () => {
             <th className='px-6 py-3 text-left text-xs font-4xl text-grady-500 uppercase tracking-wider'>Urgência</th>
           </tr>
         </thead>
+
         <tbody>
+          <hr />
           {tickets.map((ticket) => (
             <tr key={ticket.id}>
               <td>
@@ -35,6 +39,7 @@ export const List = () => {
             </tr>
           ))}
         </tbody>
+
       </table>
     </div>
   );
