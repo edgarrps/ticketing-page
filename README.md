@@ -58,7 +58,7 @@ npm i -D tailwindcss postcss autoprefixer
 npm run dev
 ```
 
-### Important notes/issues
+## Important notes/issues
 
 * For now, it is not possible to drill down on tickets after the ID is clicked, this will be implemented soon;
 
