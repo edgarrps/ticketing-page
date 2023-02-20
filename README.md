@@ -62,7 +62,7 @@ npm run dev
 
 * For now, it is not possible to drill down on tickets after the ID is clicked, this will be implemented soon;
 
-* ~~The user when logging out and signing in again, is not being redirected to the tickets screen automatically;~~
+* ~~The user when logging out and signing in again, isn't being redirected to the tickets screen automatically;~~
 
 * ~~If the user is already logged in, he is able to return to the login screen, where he ends up redoing the login unnecessarily;~~
 
