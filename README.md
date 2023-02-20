@@ -3,7 +3,7 @@
      alt="" width="166" height="196">
 
 
-[cv-generator-edgarrps.vercel.app](https://cv-generator-edgarrps.vercel.app/)
+[ticketing-page.vercel.app](https://ticketing-page.vercel.app/)
 
 ## Basic Overview
 ### Project made for a simple ticket implementation system, where the user can perceive any demand for request, suggestion, complaint and other questions.
