@@ -24,7 +24,7 @@
    
 3. At this time, the user can create a `new ticket` or `logout`;
 
-4. Em novo ticket, o usuário precisa preencher os campos `Title`, `Category`, `Urgency`, `Description`;
+4. In a new ticket, the user needs to fill in the fields `Title`, `Category`, `Urgency`, `Description`;
 
 5. Finally, the user will create a new ticket and an alert will be triggered with its respective ID;
 
