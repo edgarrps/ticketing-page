@@ -68,5 +68,6 @@ npm run dev
 
 * ~~As the user is already logged in, even if he makes a mistake in the login and password on the login screen, he can access it, 
   because validation is done by the token saved in localStorage;~~
+* The application is still considering the first registered user to generate tickets, as this has not yet been implemented;
   
 * Still doesn't work :  <img src="https://user-images.githubusercontent.com/68236516/220065241-3d7dc0c1-d0f4-4e1f-9ce2-4e36af492c15.png"  width="227" height="29">
